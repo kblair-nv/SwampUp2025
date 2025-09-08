@@ -1,6 +1,8 @@
-- uses: jfrog/setup-jfrog-cli@v4
-    env:
-        JF_URL: ${{ARTIFACTORY_URL}} 
-    with:
-        oidc-provider-name: jfrog-githuboidc 
-        
+steps:
+    - name: Setup JFrog CLI
+      uses: jfrog/setup-jfrog-cli@v4
+      id: setup-cli
+      env:
+        JF_URL: ${{vars.ARTIFACTORY_URL}}
+      with:
+        oidc-provider-name: jfrog-githuboidc
